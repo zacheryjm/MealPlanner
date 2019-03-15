@@ -1,5 +1,5 @@
 //
-//  Recipe.swift
+//  User.swift
 //  MealPlanner
 //
 //  Created by Zachery Miller on 3/14/19.
@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct User {
+    
+    let name : String
+    let username : String
+    
+    
+}

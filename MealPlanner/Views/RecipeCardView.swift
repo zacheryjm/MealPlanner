@@ -10,7 +10,16 @@ import UIKit
 
 class RecipeCardView: UIView {
     
-    fileprivate let imageView = UIImageView(image: #imageLiteral(resourceName: "Spaghetti-Carbonara-Dinner-For-Two-photo-5987"))
+    var recipeCardViewModel : RecipeCardViewModel! {
+        didSet {
+            imageView.image = UIImage(named: recipeCardViewModel.imageName)
+            informationLabel.attributedText = recipeCardViewModel.attributedString
+            informationLabel.textAlignment = recipeCardViewModel.textAlignment
+        }
+    }
+    
+    fileprivate let imageView = UIImageView(image: #imageLiteral(resourceName: "Carbonara"))
+    fileprivate let informationLabel = UILabel()
     
     //Configurations
     fileprivate let cardRemovalThreshold : CGFloat = 100;
@@ -22,8 +31,17 @@ class RecipeCardView: UIView {
         layer.cornerRadius = 10
         clipsToBounds = true
         
+        imageView.contentMode = .scaleAspectFill
+        
         addSubview(imageView)
         imageView.fillSuperview()
+        
+        addSubview(informationLabel)
+        informationLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16))
+        informationLabel.text = "Recipe Info"
+        informationLabel.textColor = .white
+        informationLabel.numberOfLines = 0
+        
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
         addGestureRecognizer(panGesture)
@@ -75,8 +93,10 @@ class RecipeCardView: UIView {
                 self.transform = .identity
             }
         }) { (_) in
-            self.transform = .identity
-            self.frame = CGRect(x: 0, y: 0, width: self.superview!.frame.width, height: self.superview!.frame.height)
+            if(shouldRemoveCard) {
+                self.removeFromSuperview()
+            }
+            
         }
     }
     

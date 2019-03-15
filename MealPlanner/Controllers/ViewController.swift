@@ -13,6 +13,16 @@ class ViewController: UIViewController {
     let homeBottomControl = HomeBottomControlsStackView()
     let topNav = HomeTopNavStackView()
     let recipeDeckView = UIView()
+    
+    let recipeCardViewModels : [RecipeCardViewModel] = {
+        let recipes = [
+            Recipe(dish: "Spaghetti Carbonara", rating: "4.7", totalTime: "30 Min", imageName: "Carbonara"),
+            Recipe(dish: "Sheet Pan Bruschetta", rating: "4.65", totalTime: "60 Min", imageName: "Bruschetta")
+        ] as [producesRecipeCardViewModel]
+        
+        let recipeViewModels = recipes.map({return $0.toRecipeCardViewModel()})
+        return recipeViewModels
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +32,15 @@ class ViewController: UIViewController {
     }
     
     fileprivate func setupRecipeDeck() {
-        let cardView = RecipeCardView()
-        recipeDeckView.addSubview(cardView)
-        cardView.fillSuperview()
+        
+        recipeCardViewModels.forEach { (recipeVM) in
+            let cardView = RecipeCardView()
+            cardView.recipeCardViewModel = recipeVM
+            
+            recipeDeckView.addSubview(cardView)
+            cardView.fillSuperview()
+
+        }
     }
     
     fileprivate func setupLayout() {
