@@ -12,23 +12,76 @@ class RecipeCardView: UIView {
     
     var recipeCardViewModel : RecipeCardViewModel! {
         didSet {
-            imageView.image = UIImage(named: recipeCardViewModel.imageName)
+            imageView.image = UIImage(named: recipeCardViewModel.imageNames[0])
             informationLabel.attributedText = recipeCardViewModel.attributedString
             informationLabel.textAlignment = recipeCardViewModel.textAlignment
+            
+            
+            (0..<recipeCardViewModel.imageNames.count).forEach { (_) in
+                let barView = UIView()
+                barView.backgroundColor = barDeselectedColor
+                barView.layer.cornerRadius = 3
+                barView.clipsToBounds = true
+                barsStackView.addArrangedSubview(barView)
+            }
+            barsStackView.arrangedSubviews.first?.backgroundColor = .white
+            
+            setupImageObserver()
         }
     }
-    
+
     fileprivate let imageView = UIImageView(image: #imageLiteral(resourceName: "Carbonara"))
+    fileprivate let gradientLayer = CAGradientLayer()
+    fileprivate let barsStackView = UIStackView()
     fileprivate let informationLabel = UILabel()
+
     
     //Configurations
     fileprivate let cardRemovalThreshold : CGFloat = 100;
+    fileprivate let cardCornerRadius : CGFloat = 10
+    fileprivate let informationLabelPadding = UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16)
+    fileprivate let gradientLayerLocations : [NSNumber] = [0.7, 1.1]
+    fileprivate let gradientLayerColors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+    fileprivate let barsStackViewPadding = UIEdgeInsets(top: 8, left: 8, bottom: 0, right: 8)
+    fileprivate let barsStackViewSize = CGSize(width: 0, height: 4)
+    fileprivate let barDeselectedColor = UIColor(white: 0, alpha: 0.1)
 
-    
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        layer.cornerRadius = 10
+        setupLayers()
+        setupBarsStackView()
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
+        addGestureRecognizer(panGesture)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
+        addGestureRecognizer(tapGesture)
+    }
+    
+    override func layoutSubviews() {
+        gradientLayer.frame = self.frame
+    }
+    
+    fileprivate func setupImageObserver() {
+        recipeCardViewModel.imageIndexObserver = {[unowned self] (image) in
+            self.imageView.image = image
+        }
+    }
+    
+    fileprivate func setupBarsStackView() {
+        addSubview(barsStackView)
+        
+        barsStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: barsStackViewPadding, size: barsStackViewSize)
+        
+        barsStackView.distribution = .fillEqually
+        barsStackView.spacing = 4
+        
+    }
+    
+    fileprivate func setupLayers() {
+        layer.cornerRadius = cardCornerRadius
         clipsToBounds = true
         
         imageView.contentMode = .scaleAspectFill
@@ -36,21 +89,46 @@ class RecipeCardView: UIView {
         addSubview(imageView)
         imageView.fillSuperview()
         
+        setupGradientLayer()
+        
         addSubview(informationLabel)
-        informationLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16))
-        informationLabel.text = "Recipe Info"
+        informationLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor,
+                                trailing: trailingAnchor, padding: informationLabelPadding)
         informationLabel.textColor = .white
         informationLabel.numberOfLines = 0
         
+    }
+    
+    fileprivate func setupGradientLayer() {
+        gradientLayer.colors = gradientLayerColors
+        gradientLayer.locations = gradientLayerLocations
+        layer.addSublayer(gradientLayer)
         
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
-        addGestureRecognizer(panGesture)
+    }
+    @objc fileprivate func handleTapGesture(gesture : UITapGestureRecognizer) {
         
+        let tapLocation = gesture.location(in: nil)
+        let shouldAdvancePhoto = tapLocation.x > frame.width / 2 ? true : false
+        
+        if(shouldAdvancePhoto) {
+            recipeCardViewModel.advanceToNextPhoto()
+        }
+        else {
+            recipeCardViewModel.goToPreviousPhoto()
+        }
+        barsStackView.arrangedSubviews.forEach { (view) in
+            view.backgroundColor = barDeselectedColor
+        }
+        barsStackView.arrangedSubviews[recipeCardViewModel.getImageIndex()].backgroundColor = .white
     }
     
     @objc fileprivate func handlePanGesture(gesture: UIPanGestureRecognizer) {
         
         switch gesture.state {
+        case .began:
+            superview?.subviews.forEach({ (view) in
+                view.layer.removeAllAnimations()
+            })
         case .changed:
             handlePanGestureChanged(gesture)
         case .ended:

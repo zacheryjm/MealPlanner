@@ -16,8 +16,8 @@ class ViewController: UIViewController {
     
     let recipeCardViewModels : [RecipeCardViewModel] = {
         let recipes = [
-            Recipe(dish: "Spaghetti Carbonara", rating: "4.7", totalTime: "30 Min", imageName: "Carbonara"),
-            Recipe(dish: "Sheet Pan Bruschetta", rating: "4.65", totalTime: "60 Min", imageName: "Bruschetta")
+            Recipe(dish: "Spaghetti Carbonara", rating: "4.7", totalTime: "30 Min", imageNames: ["Carbonara","Carbonara2"]),
+            Recipe(dish: "Sheet Pan Bruschetta", rating: "4.65", totalTime: "60 Min", imageNames: ["Bruschetta"])
         ] as [producesRecipeCardViewModel]
         
         let recipeViewModels = recipes.map({return $0.toRecipeCardViewModel()})
