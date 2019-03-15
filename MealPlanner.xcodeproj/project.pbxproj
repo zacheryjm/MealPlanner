@@ -15,6 +15,11 @@
 		C0FAA0EE223AD10000107622 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0FAA0EC223AD10000107622 /* LaunchScreen.storyboard */; };
 		C0FAA0F9223AD10000107622 /* MealPlannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FAA0F8223AD10000107622 /* MealPlannerTests.swift */; };
 		C0FAA104223AD10100107622 /* MealPlannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FAA103223AD10100107622 /* MealPlannerUITests.swift */; };
+		C0FAA112223ADF6E00107622 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FAA111223ADF6E00107622 /* Recipe.swift */; };
+		C0FAA115223AF77B00107622 /* HomeBottomControlsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FAA114223AF77B00107622 /* HomeBottomControlsStackView.swift */; };
+		C0FAA118223AFB1A00107622 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FAA117223AFB1A00107622 /* Extensions+UIView.swift */; };
+		C0FAA11A223B119C00107622 /* HomeTopNavStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FAA119223B119C00107622 /* HomeTopNavStackView.swift */; };
+		C0FAA11C223B36EB00107622 /* RecipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FAA11B223B36EB00107622 /* RecipeCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		C0FAA0FF223AD10000107622 /* MealPlannerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MealPlannerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FAA103223AD10100107622 /* MealPlannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlannerUITests.swift; sourceTree = "<group>"; };
 		C0FAA105223AD10100107622 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0FAA111223ADF6E00107622 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		C0FAA114223AF77B00107622 /* HomeBottomControlsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomControlsStackView.swift; sourceTree = "<group>"; };
+		C0FAA117223AFB1A00107622 /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
+		C0FAA119223B119C00107622 /* HomeTopNavStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopNavStackView.swift; sourceTree = "<group>"; };
+		C0FAA11B223B36EB00107622 /* RecipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +109,10 @@
 		C0FAA0DF223AD0FF00107622 /* MealPlanner */ = {
 			isa = PBXGroup;
 			children = (
+				C0FAA116223AFAD900107622 /* Extensions */,
+				C0FAA113223AF71F00107622 /* Views */,
 				C0FAA0E0223AD0FF00107622 /* AppDelegate.swift */,
+				C0FAA111223ADF6E00107622 /* Recipe.swift */,
 				C0FAA0E2223AD0FF00107622 /* ViewController.swift */,
 				C0FAA0E4223AD0FF00107622 /* Main.storyboard */,
 				C0FAA0EA223AD10000107622 /* Assets.xcassets */,
@@ -126,6 +139,24 @@
 				C0FAA105223AD10100107622 /* Info.plist */,
 			);
 			path = MealPlannerUITests;
+			sourceTree = "<group>";
+		};
+		C0FAA113223AF71F00107622 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C0FAA114223AF77B00107622 /* HomeBottomControlsStackView.swift */,
+				C0FAA119223B119C00107622 /* HomeTopNavStackView.swift */,
+				C0FAA11B223B36EB00107622 /* RecipeCardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C0FAA116223AFAD900107622 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C0FAA117223AFB1A00107622 /* Extensions+UIView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +290,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0FAA11A223B119C00107622 /* HomeTopNavStackView.swift in Sources */,
 				C0FAA0E9223AD0FF00107622 /* MealPlanner.xcdatamodeld in Sources */,
 				C0FAA0E3223AD0FF00107622 /* ViewController.swift in Sources */,
+				C0FAA118223AFB1A00107622 /* Extensions+UIView.swift in Sources */,
+				C0FAA11C223B36EB00107622 /* RecipeCardView.swift in Sources */,
+				C0FAA115223AF77B00107622 /* HomeBottomControlsStackView.swift in Sources */,
 				C0FAA0E1223AD0FF00107622 /* AppDelegate.swift in Sources */,
+				C0FAA112223ADF6E00107622 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
