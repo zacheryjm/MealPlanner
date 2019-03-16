@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>461049802839-e9abs49n90891a9d6gknf2rftueumaj8.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.461049802839-e9abs49n90891a9d6gknf2rftueumaj8</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCXDWZrekxXjd0DevzvyvHBGeuMj5HY6Rc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>461049802839</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>zmill005-odu.edu.MealPlanner</string>
+	<key>PROJECT_ID</key>
+	<string>mealplanner-2181f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mealplanner-2181f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:461049802839:ios:f538bab7b0ecae82</string>
+	<key>DATABASE_URL</key>
+	<string>https://mealplanner-2181f.firebaseio.com</string>
+</dict>
+</plist>

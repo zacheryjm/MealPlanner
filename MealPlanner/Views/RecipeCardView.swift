@@ -65,9 +65,18 @@ class RecipeCardView: UIView {
     }
     
     fileprivate func setupImageObserver() {
-        recipeCardViewModel.imageIndexObserver = {[unowned self] (image) in
+        recipeCardViewModel.bindableImageIndex.bind { (imagePos) in
+            guard let pos = imagePos else {return}
+            
+            let imageName = self.recipeCardViewModel.imageNames[pos]
+            let image = UIImage(named: imageName)
+            
             self.imageView.image = image
         }
+        
+//        recipeCardViewModel.imageIndexObserver = {[unowned self] (image) in
+//            self.imageView.image = image
+//        }
     }
     
     fileprivate func setupBarsStackView() {
