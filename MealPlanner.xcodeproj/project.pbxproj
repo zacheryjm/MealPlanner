@@ -22,6 +22,9 @@
 		C0FAA11C223B36EB00107622 /* RecipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FAA11B223B36EB00107622 /* RecipeCardView.swift */; };
 		C0FAA11F223B59EE00107622 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FAA11E223B59EE00107622 /* User.swift */; };
 		C0FAA123223B677C00107622 /* RecipeCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FAA122223B677C00107622 /* RecipeCardViewModel.swift */; };
+		C0FAA125223C36B100107622 /* UserRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FAA124223C36B100107622 /* UserRegistrationViewController.swift */; };
+		C0FAA127223C429F00107622 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FAA126223C429F00107622 /* CustomTextField.swift */; };
+		C0FAA129223C8CEC00107622 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FAA128223C8CEC00107622 /* RegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		C0FAA11B223B36EB00107622 /* RecipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCardView.swift; sourceTree = "<group>"; };
 		C0FAA11E223B59EE00107622 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C0FAA122223B677C00107622 /* RecipeCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCardViewModel.swift; sourceTree = "<group>"; };
+		C0FAA124223C36B100107622 /* UserRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistrationViewController.swift; sourceTree = "<group>"; };
+		C0FAA126223C429F00107622 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		C0FAA128223C8CEC00107622 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +158,7 @@
 				C0FAA114223AF77B00107622 /* HomeBottomControlsStackView.swift */,
 				C0FAA119223B119C00107622 /* HomeTopNavStackView.swift */,
 				C0FAA11B223B36EB00107622 /* RecipeCardView.swift */,
+				C0FAA126223C429F00107622 /* CustomTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				C0FAA0E2223AD0FF00107622 /* ViewController.swift */,
+				C0FAA124223C36B100107622 /* UserRegistrationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				C0FAA122223B677C00107622 /* RecipeCardViewModel.swift */,
+				C0FAA128223C8CEC00107622 /* RegistrationViewModel.swift */,
 			);
 			path = viewModels;
 			sourceTree = "<group>";
@@ -328,6 +337,9 @@
 				C0FAA11C223B36EB00107622 /* RecipeCardView.swift in Sources */,
 				C0FAA11F223B59EE00107622 /* User.swift in Sources */,
 				C0FAA115223AF77B00107622 /* HomeBottomControlsStackView.swift in Sources */,
+				C0FAA127223C429F00107622 /* CustomTextField.swift in Sources */,
+				C0FAA129223C8CEC00107622 /* RegistrationViewModel.swift in Sources */,
+				C0FAA125223C36B100107622 /* UserRegistrationViewController.swift in Sources */,
 				C0FAA0E1223AD0FF00107622 /* AppDelegate.swift in Sources */,
 				C0FAA112223ADF6E00107622 /* Recipe.swift in Sources */,
 			);

@@ -13,7 +13,7 @@ class HomeBottomControlsStackView: UIStackView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let buttons = [#imageLiteral(resourceName: "refresh_circle"), #imageLiteral(resourceName: "dismiss_circle"), #imageLiteral(resourceName: "super_like_circle"), #imageLiteral(resourceName: "like_circle"), #imageLiteral(resourceName: "boost_circle")].map { (image) -> UIView in
+        let buttons = [#imageLiteral(resourceName: "dismiss_circle"), #imageLiteral(resourceName: "like_circle")].map { (image) -> UIView in
             let button = UIButton(type: .system)
             button.setImage(image.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), for: .normal)
             return button

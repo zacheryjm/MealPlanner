@@ -9,20 +9,27 @@
 import UIKit
 
 class HomeTopNavStackView: UIStackView {
+    
+    let profileButton = UIButton(type: .system)
+    let calendarButton = UIButton(type: .system)
+
 
     override init(frame: CGRect) {
         super .init(frame: frame)
         
-        let buttons = [#imageLiteral(resourceName: "top_left_profile"),#imageLiteral(resourceName: "Food"),#imageLiteral(resourceName: "top_right_messages")].map { (image) -> UIView in
-            
-            let button = UIButton(type: .system)
-            button.setImage(image.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), for: .normal)
-            return button
-        }
+        let profileImage = #imageLiteral(resourceName: "top_left_profile")
+        profileButton.setImage(profileImage.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), for: .normal)
+        addArrangedSubview(profileButton)
+    
+        let appImage = #imageLiteral(resourceName: "food")
+        let appButton = UIButton(type: .system)
+        appButton.setImage(appImage.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), for: .normal)
+        appButton.isEnabled = false;
+        addArrangedSubview(appButton)
         
-        buttons.forEach { (view) in
-            addArrangedSubview(view)
-        }
+        let calendarImage = #imageLiteral(resourceName: "calendar")
+        calendarButton.setImage(calendarImage.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), for: .normal)
+        addArrangedSubview(calendarButton)
         
         distribution = .fillEqually
         heightAnchor.constraint(equalToConstant: 60).isActive = true

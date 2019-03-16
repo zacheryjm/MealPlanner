@@ -26,9 +26,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        topNav.profileButton.addTarget(self, action: #selector(handleProfileButtonTouch), for: .touchUpInside)
 
         setupLayout()
         setupRecipeDeck()
+    }
+    
+    @objc fileprivate func handleProfileButtonTouch() {
+        print("Profile")
+        let regController = UserRegistrationViewController()
+
+        present(regController, animated: true)
+        
     }
     
     fileprivate func setupRecipeDeck() {
